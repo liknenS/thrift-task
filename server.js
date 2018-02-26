@@ -1,6 +1,6 @@
-const thrift = require('thrift');
-const request = require('request');
-const cur = require('./cur');
+const thrift = require('thrift')
+const request = require('request')
+const cur = require('./cur')
 
 const ConvertService = require('./gen-nodejs/ConvertService.js')
 
@@ -17,13 +17,13 @@ const server = thrift.createServer(ConvertService, {
         const rate = data.results[key].val
         result(null, {
           converted: rate * req.value,
-          rate: rate
-        });
+          rate: rate,
+        })
       })
     } else {
-      result(new Error('Incorrect currencies'), {});
+      result(new Error('Incorrect currencies'), {})
     }
-  }
-});
+  },
+})
 
-server.listen(9090);
+server.listen(9090)
